@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "question": "Was a notice under Section 106 of the Transfer of Property Act mandatory for eviction under statutory Rent Control Acts in Ramesh Chandra Chandiok v. Chuni Lal Sabharwal?",
+    "expected_document": "sample_cases.json",
+    "category": "Landlord-Tenant Law"
+  },
+  {
+    "id": 2,
+    "question": "What did the seven-judge Constitution Bench rule in V. Dhanapal Chettiar v. Yesodai Ammal regarding prior notice under Section 106 TP Act?",
+    "expected_document": "sample_cases.json",
+    "category": "Statutory Interpretation"
+  },
+  {
+    "id": 3,
+    "question": "What happens if a borrower fails to repay a commercial loan under maritime export agreements?",
+    "expected_document": "Unknown / Insufficient",
+    "category": "Negative / Out-of-Scope Test"
+  }
+]

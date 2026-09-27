@@ -1,0 +1,57 @@
+{
+  "total_documents": 10,
+  "total_pages": 10,
+  "total_chunks": 164,
+  "documents": {
+    "Ramesh Chandra Chandiok v. Chuni Lal Sabharwal (1970) 3 SCC 140": {
+      "document_id": "sample_cases_1",
+      "source_path": "C:\\Users\\SHAHZEB ALI\\OneDrive\\Desktop\\Legal_Rag\\data\\sample_cases.json",
+      "pages_loaded": 1
+    },
+    "V. Dhanapal Chettiar v. Yesodai Ammal (1979) 4 SCC 214": {
+      "document_id": "sample_cases_2",
+      "source_path": "C:\\Users\\SHAHZEB ALI\\OneDrive\\Desktop\\Legal_Rag\\data\\sample_cases.json",
+      "pages_loaded": 1
+    },
+    "Mangilal v. Suganchand Rathi (1964) 5 SCR 239": {
+      "document_id": "sample_cases_3",
+      "source_path": "C:\\Users\\SHAHZEB ALI\\OneDrive\\Desktop\\Legal_Rag\\data\\sample_cases.json",
+      "pages_loaded": 1
+    },
+    "Nopany Investments (P) Ltd. v. Santokh Singh (HUF) (2007) 7 SCC 314": {
+      "document_id": "sample_cases_4",
+      "source_path": "C:\\Users\\SHAHZEB ALI\\OneDrive\\Desktop\\Legal_Rag\\data\\sample_cases.json",
+      "pages_loaded": 1
+    },
+    "Biswanath Agarwalla v. Sabitri Bera (2009) 15 SCC 693": {
+      "document_id": "sample_cases_5",
+      "source_path": "C:\\Users\\SHAHZEB ALI\\OneDrive\\Desktop\\Legal_Rag\\data\\sample_cases.json",
+      "pages_loaded": 1
+    },
+    "Appeal No. 101 of 1959.": {
+      "document_id": "sample_cases_6",
+      "source_path": "C:\\Users\\SHAHZEB ALI\\OneDrive\\Desktop\\Legal_Rag\\data\\sample_cases.json",
+      "pages_loaded": 1
+    },
+    "Appeal No. 52 of 1957.": {
+      "document_id": "sample_cases_7",
+      "source_path": "C:\\Users\\SHAHZEB ALI\\OneDrive\\Desktop\\Legal_Rag\\data\\sample_cases.json",
+      "pages_loaded": 1
+    },
+    "Appeals Nos. 45 and 46 of 1959.": {
+      "document_id": "sample_cases_8",
+      "source_path": "C:\\Users\\SHAHZEB ALI\\OneDrive\\Desktop\\Legal_Rag\\data\\sample_cases.json",
+      "pages_loaded": 1
+    },
+    "ION: Criminal Appeal 89 of 1961.": {
+      "document_id": "sample_cases_9",
+      "source_path": "C:\\Users\\SHAHZEB ALI\\OneDrive\\Desktop\\Legal_Rag\\data\\sample_cases.json",
+      "pages_loaded": 1
+    },
+    "Civil Appeal No. 50 of 1961.": {
+      "document_id": "sample_cases_10",
+      "source_path": "C:\\Users\\SHAHZEB ALI\\OneDrive\\Desktop\\Legal_Rag\\data\\sample_cases.json",
+      "pages_loaded": 1
+    }
+  }
+}

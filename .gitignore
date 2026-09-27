@@ -1,0 +1,12 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+
+data/vectorstore/
+data/processed/
+
+logs/
+
+.vscode/
+.idea/
