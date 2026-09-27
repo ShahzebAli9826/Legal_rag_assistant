@@ -53,43 +53,69 @@ Legal_Rag/
 
 ---
 
-## Setup & Running
+## 🚀 Setup & Running Instructions (For New Machines / Fresh Clones)
 
-### 1. Create & Activate Environment (Python 3.11)
+### Step 1: Clone Repository
+```powershell
+git clone https://github.com/ShahzebAli9826/Legal_rag_assistant.git
+cd Legal_rag_assistant
+```
+
+### Step 2: Create the Virtual Environment FIRST
+*(Note: `.venv` is ignored in Git and must be created on new laptops before activating!)*
 
 ```powershell
 py -3.11 -m venv .venv
+```
+*(If `py -3.11` is not found, use: `python -m venv .venv`)*
+
+### Step 3: Activate Virtual Environment
+
+**PowerShell**:
+```powershell
 .\.venv\Scripts\Activate.ps1
+```
+
+*(If PowerShell shows a script execution error, run `Set-ExecutionPolicy Unrestricted -Scope Process` first, or activate via CMD below)*:
+
+**Command Prompt (CMD)**:
+```cmd
+.\.venv\Scripts\activate.bat
+```
+
+### Step 4: Install Dependencies
+
+```powershell
 python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-### 2. Configure Environment Variables
+### Step 5: Configure `.env` File
 
-Copy `.env.example` to `.env` and set your API keys:
+Copy `.env.example` to create `.env`:
+
+```powershell
+Copy-Item .env.example .env
+```
+
+Open `.env` and set your **Gemini API Key**:
 
 ```env
 MODEL_PROVIDER=gemini
-GEMINI_API_KEY=your_gemini_api_key_here
+GEMINI_API_KEY=your_actual_gemini_api_key_here
 GEMINI_MODEL=gemini-2.5-flash
 ```
 
-### 3. Build Knowledge Base Index
+### Step 6: Build Knowledge Base Index
 
 ```powershell
 python -m ingestion.build_index
 ```
 
-### 4. Launch Streamlit Application
+### Step 7: Launch the Application
 
 ```powershell
 streamlit run app.py
 ```
 
 Open your browser at: **[http://localhost:8501](http://localhost:8501)**
-
-### 5. Run Unit Tests
-
-```powershell
-pytest
-```
