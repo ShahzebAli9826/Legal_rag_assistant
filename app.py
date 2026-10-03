@@ -27,6 +27,11 @@ def main():
 
     # 2. Initialize cached retriever engine & RAG chain
     retriever_engine = get_retriever_engine()
+    if retriever_engine.embedding_error:
+        st.warning(
+            "Vector embeddings could not load in this Windows environment. "
+            "The app is running with keyword search (BM25), so retrieval may be less semantic."
+        )
     rag_chain = LegalRAGChain(retriever_engine=retriever_engine, model_name=settings["model_name"])
 
     # 3. Render Main Chat UI

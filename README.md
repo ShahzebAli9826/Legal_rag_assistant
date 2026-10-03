@@ -1,6 +1,6 @@
 # Legal RAG Assistant
 
-A Web-based Legal Document Question-Answering (QA) System built with **Python 3.11**, **Streamlit**, **LangChain**, **FAISS**, **BM25**, and **Google Gemini 2.5 Flash** / OpenAI.
+A Web-based Legal Document Question-Answering (QA) System built with **Python 3.11**, **Streamlit**, **LangChain**, **PyTorch vector search**, **BM25**, and **Google Gemini 2.5 Flash** / OpenAI.
 
 ## Features
 
@@ -8,8 +8,8 @@ A Web-based Legal Document Question-Answering (QA) System built with **Python 3.
 - **Google Gemini 2.5 Flash & OpenAI**: Powered by Gemini 2.5 Flash for fast, grounded legal reasoning.
 - **Dual Document QA Mode**:
   - **Upload Mode**: Directly upload case PDFs, document images (`PNG`/`JPG`), or text files to ask questions specific to your document.
-  - **Vector DB Mode**: Automatically searches prebuilt vector database (`FAISS` + `BM25`) if no file is uploaded.
-- **Hybrid Retrieval (RRF)**: Combines **BM25 keyword search** and **FAISS vector similarity search** using Reciprocal Rank Fusion (RRF).
+  - **Vector DB Mode**: Automatically searches the local vector index and **BM25** if no file is uploaded.
+- **Hybrid Retrieval (RRF)**: Combines **BM25 keyword search** and **PyTorch cosine vector similarity** using Reciprocal Rank Fusion (RRF).
 - **Zero Hallucination Guarantee**: Strict prompt rules force answers to be grounded only in retrieved/uploaded legal text.
 - **Source Citations**: Displays exact document name, page number, and snippet previews for every answer.
 - **Clean Streamlit UI**: Sleek chat interface with sidebar status metrics and index management.
@@ -23,7 +23,7 @@ Legal_Rag/
 │   └── settings.py             # System configuration, paths, and environment variables
 ├── data/
 │   ├── sample_cases.json       # Indian legal case dataset
-│   ├── vectorstore/            # Persisted FAISS and BM25 index files
+│   ├── vectorstore/            # Persisted PyTorch vector and BM25 indices
 │   └── metadata/               # Corpus metadata tracking
 ├── ingestion/
 │   ├── pdf_loader.py           # PyMuPDF & dataset text loaders
@@ -33,7 +33,7 @@ Legal_Rag/
 │   └── build_index.py          # Offline index creation script
 ├── retrieval/
 │   ├── embeddings.py           # HuggingFace BAAI/bge-small-en-v1.5 embeddings
-│   ├── vector_store.py         # FAISS vector store manager
+│   ├── vector_store.py         # Local PyTorch cosine-similarity index
 │   ├── bm25.py                 # BM25 keyword index
 │   ├── hybrid.py               # Reciprocal Rank Fusion (RRF) retriever
 │   └── retriever.py            # Unified retriever engine

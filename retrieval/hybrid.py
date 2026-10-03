@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 
 
 class HybridRetriever:
-    """Combines BM25 keyword retrieval and FAISS vector retrieval using Reciprocal Rank Fusion (RRF)."""
+    """Combines BM25 keyword and PyTorch vector retrieval using RRF."""
 
     def __init__(self, vector_store: LegalVectorStore, bm25_index: BM25RetrieverIndex, rrf_k: int = RRF_K):
         self.vector_store = vector_store
@@ -18,7 +18,7 @@ class HybridRetriever:
 
     def retrieve(self, query: str, top_k: int = 5, candidate_k: int = 20) -> List[Document]:
         """
-        Executes hybrid BM25 + FAISS retrieval using Reciprocal Rank Fusion (RRF).
+        Executes hybrid BM25 + vector retrieval using Reciprocal Rank Fusion (RRF).
         """
         # 1. Vector similarity search
         vector_results = self.vector_store.similarity_search_with_score(query, k=candidate_k)

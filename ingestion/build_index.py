@@ -45,12 +45,12 @@ def build_knowledge_base():
     metadata_mgr = MetadataManager(METADATA_DIR)
     metadata_mgr.save_corpus_metadata(documents, chunks)
 
-    # 5. Build FAISS vector index
+    # 5. Build local PyTorch vector index
     logger.info("Initializing embedding model...")
     embedder = LegalEmbeddings()
     vector_store = LegalVectorStore(embedder)
 
-    logger.info("Building FAISS index...")
+    logger.info("Building PyTorch cosine-similarity index...")
     vector_store.build_index(chunks)
     vector_store.save(VECTORSTORE_DIR)
 

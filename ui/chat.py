@@ -2,6 +2,7 @@ import streamlit as st
 from rag.chain import LegalRAGChain
 from ui.sources import render_sources
 from ingestion.file_extractor import FileExtractor
+from ingestion.legal_pdf_validator import is_legal_pdf
 
 
 def render_chat_interface(rag_chain: LegalRAGChain, settings: dict):
@@ -13,17 +14,29 @@ def render_chat_interface(rag_chain: LegalRAGChain, settings: dict):
 
     # 1. Direct File / Image / PDF Media Uploader Box
     st.markdown("### 📎 Upload Case Document / Image / PDF")
+    if "upload_widget_version" not in st.session_state:
+        st.session_state.upload_widget_version = 0
     uploaded_file = st.file_uploader(
         "Upload a case PDF, document image (PNG/JPG), or text file to analyze directly:",
         type=["pdf", "png", "jpg", "jpeg", "txt", "json", "csv"],
-        key="active_chat_uploader",
+        key=f"active_chat_uploader_{st.session_state.upload_widget_version}",
         help="If uploaded, the AI answers using YOUR document. If empty, the AI searches the Vector Database."
     )
+
+    if st.session_state.get("rejected_upload_message"):
+        st.error(st.session_state.pop("rejected_upload_message"))
 
     extracted_custom_doc = None
     if uploaded_file is not None:
         file_bytes = uploaded_file.getvalue()
         extracted_custom_doc = FileExtractor.extract_from_bytes(file_bytes, uploaded_file.name)
+        if uploaded_file.name.lower().endswith(".pdf"):
+            accepted, rejection_message = is_legal_pdf(extracted_custom_doc)
+            if not accepted:
+                # Bump the widget key to clear the rejected PDF from the uploader.
+                st.session_state.rejected_upload_message = rejection_message
+                st.session_state.upload_widget_version += 1
+                st.rerun()
         st.info(f"📄 **Active Document Loaded:** `{uploaded_file.name}` ({len(extracted_custom_doc['text'])} chars extracted). All answers will be grounded strictly in this file.")
 
     st.markdown("---")
